@@ -1,22 +1,33 @@
-import './App.css';
+import "./App.css";
+
+const tasks = [
+  "Follow Edukasyon.ph on Facebook",
+  "Follow AWS Skilab Pilipinas on Facebook",
+  "Follow Zuitt Coding Bootcamp on Facebook",
+];
+
+function Task({ taskName, index }) {
+  return (
+    <li className="tasks-item" key={index}>
+      {taskName}
+    </li>
+  );
+}
 
 function TasksList() {
-  return(
-    <ul>
-      <li className='tasks-item'>Follow Edukasyon.ph on Facebook</li>
-      <li className='tasks-item'>Follow AWS Skilab Pilipinas on Facebook</li>
-      <li className='tasks-item'>Follow Zuitt Coding Bootcamp on Facebook</li>
-    </ul>
-  );
+  const task = tasks.map((task, index) => {
+    return <Task taskName={task} key={index} />;
+  });
+  return <ul>{task}</ul>;
 }
 
 function App() {
   const pStyle = {
-    "marginBottom": "15px"
-  }
+    marginBottom: "15px",
+  };
   return (
     <div className="app">
-      <header className='app-header'>
+      <header className="app-header">
         <h1>My Amazing To-do list App</h1>
         <p style={pStyle}>The most simple and amazing todo-list React app.</p>
         <TasksList />
