@@ -18,7 +18,12 @@ function TasksList() {
   const task = tasks.map((task, index) => {
     return <Task taskName={task} key={index} />;
   });
-  return <ul>{task}</ul>;
+  return (
+    <div className="">
+      <input type="text" className="task-input" />
+      <ul>{task}</ul>
+    </div>
+  );
 }
 
 function App() {
